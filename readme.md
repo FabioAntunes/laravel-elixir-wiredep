@@ -11,7 +11,7 @@ $ npm install --save laravel-elixir-wiredep
 
 And add it to your Elixir-enhanced Gulpfile, like so:
 
-```
+```javascript
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-wiredep');
@@ -23,7 +23,7 @@ elixir(function(mix) {
 
 Then you just have to edit your php file(s) and some extra markup, like this:
 
-```
+```html
 <!doctype html>
 <html>
 <head>
@@ -41,7 +41,7 @@ Then you just have to edit your php file(s) and some extra markup, like this:
 
 This will scan your Bower dependencies on `bower.json` and inject them in all your `.php` files inside `resources/views/` directory. Instead, if you only want to inject dependencies on a single file, you may do:
 
-```
+```javascript
 mix.wiredep({src: 'master.blade.php'})
 ```
 
@@ -53,7 +53,7 @@ Whenever you install a new bower package with the `-S` command your php files wi
 ## NOTE
 Since Wiredep serves bower components, these must inside the public folder.
 Just create a `.bowerrc` file in the root of your project folder and specify the destination folder inside the public folder, like so:
-```
+```javascript
 {
   "directory" : "public/bower_components"
 }
@@ -63,18 +63,18 @@ Just create a `.bowerrc` file in the root of your project folder and specify the
 This wrapper accepts two objects with configurations, the first one is for the wrapper itself and second one is for the Wiredep package you can get more info [here](https://github.com/taptapship/wiredep#configuration)
 
 These are the default wrapper options:
-```
+```javascript
 {
 	baseDir: 'resources/views/',	//the folder for your views
 	src: false,	//if you just want to inject dependencies on one file just specify it's source, relative to baseDir
-	searchLevel: '**/*.php',	//How many search levels you want
+	searchLevel: '**/*.php'	//How many search levels you want
 
 }
 ```
 
 ## Example
 This is an example of a Gulp file that Wiredeps **only** your javascript dependencies and compiles your custom Sass file into the `resources/views/master.blade.php`:
-```
+```javascript
 var elixir = require('laravel-elixir');
 require('laravel-elixir-wiredep');
 
