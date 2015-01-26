@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/FabioAntunes/laravel-elixir-wiredep"
+  },
   "keywords": [
     "laravel",
     "elixir",
@@ -14,6 +18,10 @@
   ],
   "author": "Fabio Antunes",
   "license": "MIT",
+  "homepage": "https://github.com/FabioAntunes/laravel-elixir-wiredep",
+  "bugs": {
+    "url": "https://github.com/FabioAntunes/laravel-elixir-wiredep/issues"
+  },
   "dependencies": {
     "wiredep": "^2.2.2"
   }
