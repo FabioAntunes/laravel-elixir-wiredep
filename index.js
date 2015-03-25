@@ -21,8 +21,8 @@ elixir.extend('wiredep', function(config, opts) {
             css: /<link.*href=['"]([^'"]+)/gi
           },
           replace: {
-            js: '<script src="{{filePath}}"></script>',
-            css: '<link rel="stylesheet" href="{{filePath}}" />'
+            js: '<script src="{{ asset(\'{{filePath}}\') }}"></script>',
+            css: '<link rel="stylesheet" href="{{ asset(\'{{filePath}}\') }}" />'
           }
         }
       };
