@@ -12,7 +12,7 @@ elixir.extend('wiredep', function(config, opts) {
   config.src = config.src || false;
   config.searchLevel = config.searchLevel || '**/*.php';
   
-  opts.ignorePath = opts.ignorePath || /(\..\/)*public\//;
+  opts.ignorePath = opts.ignorePath || /(\..\/)*public/;
   opts.fileTypes = opts.fileTypes || {
         php: {
           block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
@@ -21,8 +21,8 @@ elixir.extend('wiredep', function(config, opts) {
             css: /<link.*href=['"]([^'"]+)/gi
           },
           replace: {
-            js: '<script src="{{ asset(\'{{filePath}}\') }}"></script>',
-            css: '<link rel="stylesheet" href="{{ asset(\'{{filePath}}\') }}" />'
+            js: '<script src="{{filePath}}"></script>',
+            css: '<link rel="stylesheet" href="{{filePath}}" />'
           }
         }
       };
