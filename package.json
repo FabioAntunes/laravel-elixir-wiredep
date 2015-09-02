@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-wiredep",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Laravel Elixir Wiredep extension",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "wiredep": "^2.2.2"
+  },
+  "peerDependencies": {
+    "laravel-elixir": "^3.0"
   }
 }
