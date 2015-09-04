@@ -11,7 +11,7 @@ $ npm install --save-dev laravel-elixir-wiredep
 
 **laravel-elixir < v2.x**
 ```bash
-$ npm install --save-dev laravel-elixir-wiredep@"^0.1"
+$ npm install --save-dev laravel-elixir-wiredep@2.x-release
 ```
 
 
