@@ -4,8 +4,14 @@
 ## Getting Started
 Install the module with [npm](https://npmjs.org):
 
+**laravel-elixir >v3.x**
 ```bash
-$ npm install --save laravel-elixir-wiredep
+$ npm install --save-dev laravel-elixir-wiredep
+```
+
+**laravel-elixir < v2.x**
+```bash
+$ npm install --save-dev laravel-elixir-wiredep@"^0.1"
 ```
 
 
