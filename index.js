@@ -3,6 +3,8 @@ var wiredep = require('wiredep').stream;
 var elixir = require('laravel-elixir');
 var path = require('path');
 var task = elixir.Task;
+var econ = elixir.config;
+var merge = require('merge-stream');
 
 elixir.extend('wiredep', function(config, opts) {
 
@@ -62,13 +64,20 @@ elixir.extend('wiredep', function(config, opts) {
               sass: '@import "{{filePath}}";',
               scss: '@import "{{filePath}}";'
           }
-        }
+        },
       };
+
+      var less = path.join(econ.get('assets.less.folder'), '**/*.less');
+      var sass = path.join(econ.get('assets.sass.folder'), '**/*.sass');
+      var scss = path.join(econ.get('assets.sass.folder'), '**/*.scss');
 
       new task('wiredep', function() {
         var src = path.join(config.baseDir, !!config.src ? config.src : config.searchLevel);
-
-        return gulp.src(src).pipe(wiredep(opts)).pipe(gulp.dest(config.baseDir))
+        return merge( gulp.src(less).pipe(wiredep(opts)).pipe(gulp.dest(econ.get('assets.css.less.folder'))),
+                      gulp.src(sass).pipe(wiredep(opts)).pipe(gulp.dest(econ.get('assets.css.sass.folder'))),
+                      gulp.src(scss).pipe(wiredep(opts)).pipe(gulp.dest(econ.get('assets.css.sass.folder'))),
+                      gulp.src(src).pipe(wiredep(opts)).pipe(gulp.dest(config.baseDir))
+                    );
       })
       .watch(opts.bowerJson || './bower.json');
 
