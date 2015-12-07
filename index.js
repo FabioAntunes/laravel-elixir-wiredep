@@ -36,6 +36,32 @@ elixir.extend('wiredep', function(config, opts) {
               css: '@import "{{filePath}}";',
               less: '@import "{{filePath}}";'
           }
+        },
+        sass: {
+          block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+          detect: {
+              css: /@import\s(.+css)/gi,
+              sass: /@import\s(.+sass)/gi,
+              scss: /@import\s(.+scss)/gi
+          },
+          replace: {
+              css: '@import {{filePath}}',
+              sass: '@import {{filePath}}',
+              scss: '@import {{filePath}}'
+          }
+        },
+        scss: {
+          block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+          detect: {
+              css: /@import\s['"](.+css)['"]/gi,
+              sass: /@import\s['"](.+sass)['"]/gi,
+              scss: /@import\s['"](.+scss)['"]/gi
+          },
+          replace: {
+              css: '@import "{{filePath}}";',
+              sass: '@import "{{filePath}}";',
+              scss: '@import "{{filePath}}";'
+          }
         }
       };
 
