@@ -25,6 +25,17 @@ elixir.extend('wiredep', function(config, opts) {
             js: '<script src="{{filePath}}"></script>',
             css: '<link rel="stylesheet" href="{{filePath}}" />'
           }
+        },
+        less: {
+          block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+          detect: {
+              css: /@import\s['"](.+css)['"]/gi,
+              less: /@import\s['"](.+less)['"]/gi
+          },
+          replace: {
+              css: '@import "{{filePath}}";',
+              less: '@import "{{filePath}}";'
+          }
         }
       };
 
