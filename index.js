@@ -13,7 +13,7 @@ elixir.extend('wiredep', function(config, opts) {
   config.src = config.src || false;
   config.searchLevel = config.searchLevel || '**/*.php';
 
-  opts.ignorePath = opts.ignorePath || /(\..\/)*public/;
+  opts.ignorePath = opts.ignorePath || /(\..\/)*(public)?/;
   opts.fileTypes = opts.fileTypes || {
         php: {
           block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
