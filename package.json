@@ -26,6 +26,6 @@
     "wiredep": "^2.2.2"
   },
   "peerDependencies": {
-    "laravel-elixir": "^3.0"
+    "laravel-elixir": ">=3.0"
   }
 }
